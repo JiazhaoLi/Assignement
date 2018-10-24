@@ -1,0 +1,46 @@
+EECS 595 Assignment 2
+Jiazhao Li  unique name: jiazhaol
+
+Part 1:
+	A. 
+		It can be separated into 2 part: data_pre-processing and neural network training.
+	data_pre-processing:
+		For sentence content, I maintain all whitespace and punctuations and treat each sentence as one string.
+		Each 5 char sequence in this sentence can form one instance and label with senence label.
+		For all characters in training data, I used one-hot encoder, resulting each 5 char instance can
+	   		be embedding into 5*c by 1 vector with a 3*1 label.
+
+		For those char that appeared in dev or test but not in train, I embedded the with same another one-hot
+			vector.	
+		I also save the length of each sentence for later prediction.
+		The result of data pro-precessing:
+			train instances: N1-by-5*c
+		    train label : N1-by-3
+		The same for test and dev dataset
+
+	Neural Network:
+		This process can be written in pseudo code:
+
+			parameter initialization() 
+			forward_propogation()  # use NN to predict 
+			loss_function()   # compare the predict and true label
+			backward_propogation()	# use loss to calculate the gradient
+			updata_parameters()     # updata the parameters
+	
+	B. report the accuracy
+		After 3 epochs train_acc = 0.9938
+					   dev_acc = 0.996
+					   test_acc = 0.99
+
+Part 2:
+	A. How to choose sets of hyerparameters:
+		For each set, only one hyerparameters will be changed and the change will be around original
+		settings.
+	B.  [lr, hidden layer size] = [[0.1, 50], [0.1, 150], [0.1, 200], [0.05, 100], [0.01, 100]]
+	C. The best performance set is set [0.05, 100] with 0.998 on dev set.
+	D. The best performance is 0.993 on test set for set [0.05,100].
+	
+
+	
+		
+

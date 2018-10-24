@@ -1,0 +1,54 @@
+# Name : Jiazhao Li 
+# Unique name: jiazhaol
+
+1. Top20 bigrams along with Chi_sqaure:
+('Burnham Lambert', 156104.00000000003)
+('Philip Morris', 156104.00000000003)
+('Sea Containers', 156104.00000000003)
+('Hong Kong', 156104.00000000003)
+('Drexel Burnham', 156104.00000000003)
+('S&P 500', 156104.00000000003)
+('St. Louis', 156104.00000000003)
+('Navigation Mixte', 156104.00000000003)
+('spare parts', 156104.0)
+('Maclean Hunter', 156104.0)
+('Fort Worth', 156104.0)
+('Edward Kennedy', 156104.0)
+('real estate', 156104.0)
+('margin requirements', 156104.0)
+('Banque Indosuez', 156104.0)
+('Brown Boveri', 156104.0)
+('Posted yields', 156104.0)
+('Great Northern', 156104.0)
+('Aga Khan', 156104.0)
+('Learning Materials', 156104.0)
+
+2. Top20 bigrams along wiht PMI:
+('BANKERS ACCEPTANCES', 12.339932373659362)
+('ASSETS TRUST', 12.339932373659362)
+('LATE EURODOLLARS', 12.339932373659362)
+('LYNCH READY', 12.339932373659362)
+('MERRILL LYNCH', 12.339932373659362)
+('INTERBANK OFFERED', 12.339932373659362)
+('TREASURY BILLS', 12.339932373659362)
+('Fulton Prebon', 12.339932373659362)
+('Zoete Wedd', 12.339932373659362)
+('READY ASSETS', 12.339932373659362)
+('Wastewater Treatment', 12.339932373659362)
+('Aga Khan', 12.157610816865407)
+('Hang Seng', 12.157610816865407)
+('CALL MONEY', 12.157610816865407)
+('Deb Shops', 12.157610816865407)
+('OF DEPOSIT', 12.157610816865407)
+('CERTIFICATES OF', 12.157610816865407)
+('Bare-Faced Messiah', 12.157610816865407)
+('HOME LOAN', 12.157610816865407)
+('Easy Eggs', 12.157610816865407)
+
+
+3. Which is better? 
+   I think Chi-sqaure is better when compare two top20 result. The season can be found in formula. 
+A.For chi-square, the formulae considers the ratio of bigrams appearance and the ratio of frequency of one word with the other letters. However, the PMI only considered about the frequency of bigrams and unigrams of each word in collocations. PMI didnt consider about the total number of bigrams that contain single word. 
+B.For unigrams, we didn't delete the frequency of bigrams below 5 times, so the prob of unigrams is little higher than marginal bigrams statistics.
+C.Another perspective is if you take the matrix of bigrams distributions like in chi-square,for each pair of bigrams, we fully made use of all data in this matrix. PMI only use single single point of this matrix and one row and one column if we took these two as marginal probability. 
+

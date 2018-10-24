@@ -1,0 +1,12 @@
+# Name : Jiazhao Li 
+# Unique Name: jiazhaol
+
+1. Description of own three additional features:
+   A. For left word of periods, I check how many capitalized letter in it. The threshold is 2, if the number of capitalized word is less or equal than 2, we use binary True to indicate it. 
+   B. The length of word before the left of periods.
+   C. The length of word after periods
+
+2.Accuracy of all eight features on test: 99.19%
+  Accuracy of only five features on test: 99.16%
+  Accuracy of own three features on test: 75.40%
+

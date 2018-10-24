@@ -1,4 +1,4 @@
-#EECS595 NLP Assignment 2
+# Assignment 2
 
-Implement a Nerual Network to do Language Classification.
+Implement a Nerual Network without framework to do Language Classification.
 

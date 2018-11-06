@@ -1,0 +1,36 @@
+#Name: Jiazhao Li  unique name: jiazhaol
+
+
+
+1. on test data:
+    Viterbi algorithm Tag_level_acc = 94.25%
+    Simple baseline Tag_level_acc = 91.87%
+
+2. analyze the first 5 error :
+
+1.
+predict: ... region/NN 's/POS
+ground truth: ... region/NN 's/VBZ
+Reason and fixed method: Pr(POS/'s) = 0.23, Pr(POS/'s) = 0.025, so it is more likely to classify 's into POS. possible fix is to use a more advanced loss function in LSTM model.
+
+2. 
+predict: ... voted/VBD on/IN
+ground truth: ... voted/VBD on/RP
+Reason and fixed method :  from the table(HMM chain) Pr(IN/VBD) = 0.124 vs Pr(RP/VBD) = 0.0095 so it is more likely to classify it into IN. Possible fix is to use bigram taking vote on as a whole and make prediction.
+
+3.
+predict: ... producer-consumer/DT cooperation/NN ./. 
+ground truth: ... producer-consumer/JJ cooperation/NN ./.
+Reason and fixed method : Since word 'producer-consumer' only appears in Train data not in test data in Viterbi predict process, the prob of this word is 1/|V| after smoothing, so it will be high prob that we have wrong prediction.
+By enlarging the train data, we could enlarge the vocabulary. Or we could use other more complicated smoothing method.
+
+4. 
+predict: ... HURRICANE/NP HUGO/NP LASHED/NP Caribbean/NP
+ground truth: ... HURRICANE/NP HUGO/NP LASHED/VBD Caribbean/NP
+Reason and fixed method : Since word 'LASHED' only appears in Train data not in test data in Viterbi predict process, the prob of this word is 1/|V| after smoothing, so it will be high prob that we have wrong prediction.
+By enlarging the train data, we could enlarge the vocabulary. Or we could use other more complicated smoothing method.
+
+5. 
+predict: ...most/JJS powerful/JJ in/IN
+ground truth: ... most/RBS powerful/JJ in/IN
+Reason and fixed method: P(JJS/JJ) = 0.109 vs P(RBS/JJ) = 0.0001 so it is more likely to classify into JJS. Possible fix is to use a bigram taking most powerful as a whole.
